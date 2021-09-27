@@ -19,8 +19,7 @@ jobs:
     - run: yarn
     - run: yarn compile
     - run: yarn build
-
-  - name: Deploy to Skynet
+    - name: Deploy to Skynet
         uses: SkynetLabs/deploy-to-skynet-action@v2
         with:
           upload-dir: build
