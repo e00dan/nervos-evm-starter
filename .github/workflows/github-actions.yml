@@ -1,9 +1,9 @@
 name: Build and deploy frontend
 on:
   push:
-    branches: [ feat/homescreen ]
+    branches: [ master ]
   pull_request:
-    branches: [ feat/homescreen ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
