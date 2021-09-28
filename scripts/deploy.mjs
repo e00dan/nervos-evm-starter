@@ -5,7 +5,7 @@ import { readFile } from 'fs/promises';
 import CONFIG from '../src/config.js';
 
 (async () => {
-    const DenominationsJSON = JSON.parse(
+    const SimpleStorageJSON = JSON.parse(
         await readFile(
             new URL('../src/artifacts/contracts/SimpleStorage.sol/SimpleStorage.json', import.meta.url)
         )
@@ -25,10 +25,10 @@ import CONFIG from '../src/config.js';
 
     const USER_ONE = web3.eth.accounts.wallet.add(CONFIG.USER_ONE_PRIVATE_KEY);
 
-    const myContract = new web3.eth.Contract(DenominationsJSON.abi);
+    const myContract = new web3.eth.Contract(SimpleStorageJSON.abi);
     const contractInstance = await myContract
         .deploy({
-            data: DenominationsJSON.bytecode,
+            data: SimpleStorageJSON.bytecode,
             arguments: []
         })
         .send({

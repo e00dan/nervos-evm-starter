@@ -9,7 +9,7 @@
     "scripts": {
         "start": "react-app-rewired start",
         "build": "react-app-rewired build",
-        "test": "react-app-rewired test",
+        "test": "hardhat test",
         "eject": "react-scripts eject",
         "compile": "hardhat compile",
         "deploy": "node scripts/deploy.mjs",
@@ -47,12 +47,13 @@
         "web3": "1.5.2"
     },
     "devDependencies": {
-        "@nomiclabs/hardhat-web3": "2.0.0",
-        "ethlint": "1.2.5",
-        "hardhat": "^2.6.4",
         "@babel/plugin-syntax-bigint": "^7.8.3",
+        "@nomiclabs/hardhat-web3": "2.0.0",
         "babel-loader": "8.1.0",
         "babel-plugin-named-asset-import": "^0.3.7",
+        "chai": "^4.3.4",
+        "ethlint": "1.2.5",
+        "hardhat": "^2.6.4",
         "react-app-rewired": "^2.1.8"
     },
     "engines": {

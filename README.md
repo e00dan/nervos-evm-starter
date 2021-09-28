@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[Click to view the deployed project online.](https://0000n27nfk7jj8vjvf47jq3fpuq6ic47nl4jnbskuprl0r02b4lhsk0.siasky.net/)
+
 ## Install and compile contracts
 
 ```
