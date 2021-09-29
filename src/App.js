@@ -1,10 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { AddressTranslator } from 'nervos-godwoken-integration';
-import Web3 from 'web3';
-import { PolyjuiceHttpProvider } from '@polyjuice-provider/web3';
 
-import CONFIG from './config';
+import { web3 } from './config.testnet';
 import SimpleStorageJSON from './artifacts/contracts/SimpleStorage.sol/SimpleStorage.json';
 
 import './App.css';
@@ -13,13 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 async function createWeb3() {
   // Modern dapp browsers...
   if (window.ethereum) {
-      const providerConfig = {
-          web3Url: CONFIG.HTTP_RPC_URL
-      };
-
-      const provider = new PolyjuiceHttpProvider(CONFIG.HTTP_RPC_URL, providerConfig);
-      const web3 = new Web3(provider || Web3.givenProvider);
-
       try {
           // Request account access if needed
           await window.ethereum.enable();

@@ -1,9 +1,5 @@
-name: Build and deploy frontend
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+name: Test & Build & Deploy
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,10 +13,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn
+    - run: yarn start-eth-node > /dev/null 2>&1 &
     - run: yarn compile
-    - run: yarn build
+    - run: yarn test:eth
     - run: yarn test
+    - run: yarn build
     - name: Deploy to Skynet
+      if: github.ref == 'refs/heads/master'
       uses: SkynetLabs/deploy-to-skynet-action@v2
       with:
         upload-dir: build

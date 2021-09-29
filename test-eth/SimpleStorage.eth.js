@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { readFile } = require('fs/promises');
-const { web3, userOne } = require('../src/config.testnet');
+const { web3, userOne } = require('../src/config.eth');
 
 describe('SimpleStorage', function () {
     let contract;
