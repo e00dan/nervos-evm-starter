@@ -10,10 +10,12 @@
         "start": "react-app-rewired start",
         "build": "react-app-rewired build",
         "test": "hardhat test",
+        "test:eth": "hardhat test --config hardhat.config.eth.js",
         "eject": "react-scripts eject",
         "compile": "hardhat compile",
         "deploy": "node scripts/deploy.mjs",
-        "prettier": "prettier --write --config-precedence file-override './src/**/*'"
+        "prettier": "prettier --write --config-precedence file-override './src/**/*'",
+        "start-eth-node": "hardhat node"
     },
     "eslintConfig": {
         "extends": [
@@ -44,7 +46,8 @@
         "react-scripts": "4.0.3",
         "react-toastify": "^8.0.2",
         "web-vitals": "^1.0.1",
-        "web3": "1.5.2"
+        "web3": "1.5.2",
+        "web3-providers-ws": "^1.5.3"
     },
     "devDependencies": {
         "@babel/plugin-syntax-bigint": "^7.8.3",

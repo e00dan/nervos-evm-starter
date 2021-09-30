@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const { readFile } = require('fs/promises');
-const { web3, userOne } = require('../src/config.testnet');
+const { web3, userOne } = require('../src/config.eth');
 
 describe('SimpleStorage', function () {
     let contract;
@@ -45,15 +45,15 @@ describe('SimpleStorage', function () {
                 expect(error).to.equal(null);
                 expect(event.event).to.equal('ValueChanged');
                 expect(event.removed).to.equal(false);
-                expect(event.logIndex >= 0).to.equal(true);
-                expect(event.transactionIndex >= 0).to.equal(true);
+                expect(event.logIndex).to.equal(0);
+                expect(event.transactionIndex).to.equal(0);
                 expect(typeof event.returnValues).to.equal('object');
                 expect(typeof event.raw).to.equal('object');
 
                 resolve();
             });
         });
-    }).timeout(200000);
+    });
 
     it(`ValueChanged events can be captured via contract.events.ValueChanged`, async function () {
         await new Promise(resolve => {
@@ -63,15 +63,15 @@ describe('SimpleStorage', function () {
                 expect(error).to.equal(null);
                 expect(event.event).to.equal('ValueChanged');
                 expect(event.removed).to.equal(false);
-                expect(event.logIndex >= 0).to.equal(true);
-                expect(event.transactionIndex >= 0).to.equal(true);
+                expect(event.logIndex).to.equal(0);
+                expect(event.transactionIndex).to.equal(0);
                 expect(typeof event.returnValues).to.equal('object');
                 expect(typeof event.raw).to.equal('object');
 
                 resolve();
             });
         });
-    }).timeout(200000);
+    });
 
     it(`ValueChanged events can be captured via contract.getPastEvents`, async function () {
         const events = await contract.getPastEvents('ValueChanged', {
@@ -85,9 +85,9 @@ describe('SimpleStorage', function () {
 
         expect(event.event).to.equal('ValueChanged');
         expect(event.removed).to.equal(false);
-        expect(event.logIndex >= 0).to.equal(true);
-        expect(event.transactionIndex >= 0).to.equal(true);
+        expect(event.logIndex).to.equal(0);
+        expect(event.transactionIndex).to.equal(0);
         expect(typeof event.returnValues).to.equal('object');
         expect(typeof event.raw).to.equal('object');
-    }).timeout(200000);
+    });
 });
