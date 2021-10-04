@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { AddressTranslator } from 'nervos-godwoken-integration';
 
-import { web3 } from './config.testnet';
+import { web3 } from './config.testnet.browser';
 import SimpleStorageJSON from './artifacts/contracts/SimpleStorage.sol/SimpleStorage.json';
 
 import './App.css';

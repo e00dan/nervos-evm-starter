@@ -19,11 +19,8 @@ const web3 = new Web3(provider);
 web3.eth.accounts = polyjuiceAccounts;
 web3.eth.Contract.setProvider(provider, web3.eth.accounts);
 
-const userOne = web3.eth.accounts.wallet.add(CONFIG.USER_ONE_PRIVATE_KEY);
-
 module.exports = {
     ...CONFIG,
     provider,
-    web3,
-    userOne
+    web3
 };
